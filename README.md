@@ -98,7 +98,7 @@ RColorBrewer_1.1-2
 * Clone this repo into your working directory (instructions <a href="https://help.github.com/en/articles/cloning-a-repository" target="_blank">here</a>).
 
 ```
-git clone ADD REPO ADDRESS HERE 
+git clone https://github.com/errcricket/SWANS.git
 ```
 
 #### <a name="sample_list">samples.sample_list</a>
