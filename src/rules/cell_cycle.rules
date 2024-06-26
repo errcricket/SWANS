@@ -1,0 +1,44 @@
+#'''
+#Author:	E. Reichenberger
+#Date:		3.16.2022
+#'''
+
+# paths
+log_directory = 'logs/cell_cycle/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The cell cycle pipeline completed with no errors.")
+  shell("mail -s 'The cell cycle pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The cell cycle pipeline did not complete without errors."),
+  shell("mail -s 'The cell cycle pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule all_cc:
+	input:
+		#cell_cycle_list
+		'data/endpoints/' + PROJECT + '/' + '{sample}/{sample}_CC.RDS',
+
+rule cell_cycle:
+	input:
+		script = 'src/scripts/cell_cycling.R',
+		barcodes_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/barcodes.tsv.gz',
+		features_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/features.tsv.gz',
+		matrix_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/matrix.mtx.gz'
+	params:
+		r_lib_path = RPATH,
+		sample = "{sample}",
+		project = PROJECT,
+		df_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder', 
+		organism = ORGANISM,
+		ccregression = CCREGRESSION,
+		ccregression_method = CCREGRESSION_METHOD,
+		cc_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/cell_cycle/',
+	output: 
+		cell_cycling_RDS = 'data/endpoints/' + PROJECT + '/' + '{sample}/{sample}_CC.RDS',
+	log:
+		log_output = log_directory + "{sample}_cell_cycle.log"
+	shell:
+		"Rscript {input.script} {params.r_lib_path} {params.sample} {params.project} {params.df_path} {params.organism} {params.ccregression} {params.ccregression_method} {params.cc_path} 2> {log.log_output}"

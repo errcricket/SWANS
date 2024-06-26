@@ -1,0 +1,1023 @@
+data/endpoints/pastor/
+├── A1
+│   ├── 10X
+│   │   └── outs
+│   │       └── web_summary.html
+│   ├── A1_images
+│   ├── figures
+│   │   ├── A1_pastor_doublet.pdf
+│   │   └── pk_sweep_plot_A1_pastor.pdf
+│   └── tables
+│       ├── A1_pastor_doublet_ids.txt
+│       ├── A1_pastor_pk_value.txt
+│       └── A1_pastor_pk_values.txt
+├── A2
+│   ├── 10X
+│   │   └── outs
+│   │       └── web_summary.html
+│   ├── figures
+│   │   ├── A2_pastor_doublet.pdf
+│   │   └── pk_sweep_plot_A2_pastor.pdf
+│   └── tables
+│       ├── A2_pastor_doublet_ids.txt
+│       ├── A2_pastor_pk_value.txt
+│       └── A2_pastor_pk_values.txt
+├── A3
+│   ├── 10X
+│   │   └── outs
+│   │       └── web_summary.html
+│   ├── figures
+│   │   ├── A3_pastor_doublet.pdf
+│   │   └── pk_sweep_plot_A3_pastor.pdf
+│   └── tables
+│       ├── A3_pastor_doublet_ids.txt
+│       ├── A3_pastor_pk_value.txt
+│       └── A3_pastor_pk_values.txt
+├── A4
+│   ├── 10X
+│   │   └── outs
+│   │       └── web_summary.html
+│   ├── figures
+│   │   ├── A4_pastor_doublet.pdf
+│   │   └── pk_sweep_plot_A4_pastor.pdf
+│   └── tables
+│       ├── A4_pastor_doublet_ids.txt
+│       ├── A4_pastor_pk_value.txt
+│       └── A4_pastor_pk_values.txt
+└── analysis
+    ├── PCA_12
+    │   ├── RDS
+    │   │   ├── pastor_RPCA.RDS
+    │   │   ├── pastor_SCT.RDS
+    │   │   └── pastor_Standard.RDS
+    │   ├── figures
+    │   │   ├── dataset_characterization
+    │   │   ├── dge_plots
+    │   │   │   ├── RPCA
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCA.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCA.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCA.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCA.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_RPCA.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_RPCAS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_RPCAS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_RPCAS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_RPCAS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_RPCA.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_RPCAS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_RPCAS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_RPCAS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_RPCAS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_RPCA.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_RPCAS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_RPCAS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_RPCAS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_RPCAS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_RPCA.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_RPCAS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_RPCAS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_RPCAS3.pdf
+    │   │   │   │   └── pastor_initial_cluster_plots_integrated_snn_res.1_RPCAS4.pdf
+    │   │   │   ├── SCT
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCT.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCT.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCT.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS4.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCT.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS1.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS2.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS3.pdf
+    │   │   │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_SCT.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_SCTS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_SCTS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_SCTS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_SCTS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_SCT.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_SCTS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_SCTS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_SCTS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_SCTS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_SCT.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_SCTS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_SCTS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_SCTS3.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_SCTS4.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_SCT.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_SCTS1.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_SCTS2.pdf
+    │   │   │   │   ├── pastor_initial_cluster_plots_integrated_snn_res.1_SCTS3.pdf
+    │   │   │   │   └── pastor_initial_cluster_plots_integrated_snn_res.1_SCTS4.pdf
+    │   │   │   └── Standard
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.6_Standard.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS1.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS2.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS3.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS4.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.8_Standard.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS1.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS2.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS3.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS4.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1.2_Standard.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS1.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS2.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS3.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS4.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1_Standard.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS1.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS2.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS3.pdf
+    │   │   │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS4.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_Standard.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_StandardS1.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_StandardS2.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_StandardS3.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.6_StandardS4.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_Standard.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_StandardS1.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_StandardS2.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_StandardS3.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.0.8_StandardS4.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_Standard.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_StandardS1.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_StandardS2.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_StandardS3.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1.2_StandardS4.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1_Standard.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1_StandardS1.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1_StandardS2.pdf
+    │   │   │       ├── pastor_initial_cluster_plots_integrated_snn_res.1_StandardS3.pdf
+    │   │   │       └── pastor_initial_cluster_plots_integrated_snn_res.1_StandardS4.pdf
+    │   │   ├── pastor_cell_cycling_RPCA_post.pdf
+    │   │   ├── pastor_cell_cycling_RPCA_pre.pdf
+    │   │   ├── pastor_cell_cycling_SCT_post.pdf
+    │   │   ├── pastor_cell_cycling_SCT_pre.pdf
+    │   │   ├── pastor_cell_cycling_Standard_post.pdf
+    │   │   ├── pastor_cell_cycling_Standard_pre.pdf
+    │   │   └── possible_markers
+    │   │       ├── RPCA
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Basophil_Blood_Chronic_Myeloid_Leukemia_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Basophil_Lung_Chronic_Myeloid_Leukemia_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Bipolar_cell_Eye_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Intestine_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Mucous_acinar_cell_Salivary_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Osteogenic_precursor-like_cell_Dermis_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Prostate_progenitor_cell_Prostate_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Thymus-derived_regulatory_T_Treg_cell_Thymus_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Bipolar_cell_Eye_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Intestine_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Corneal_limbal_stem_cell_Limbal_epithelium_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Gastric_stem_cell_Gastric_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Incisor_epithelial_stem_cell_Embryo_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Gastrointestinal_tract_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Mucous_acinar_cell_Salivary_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Osteogenic_precursor-like_cell_Dermis_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Prostate_progenitor_cell_Prostate_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Somatic_stem_cell_Endometrium_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Gastric_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Kidney_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Thymus-derived_regulatory_T_Treg_cell_Thymus_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Bipolar_cell_Eye_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_cell_Brain_Brain_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Gastric_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Breast_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Gastric_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Hepatocellular_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Intestine_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Myometrium_Fibroid_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Stomach_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Undefined_Head_and_neck_cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Mesenchymal_stem_cell_Amniotic_fluid_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Mucous_acinar_cell_Salivary_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Muller_glia_precursor_cell_Retina_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Myometrial_stem_cell_Myometrium_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Osteogenic_precursor-like_cell_Dermis_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Outer_Pillar_Cell_Inner_Ear_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Prostate_progenitor_cell_Prostate_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Serous_acinar_cell_Salivary_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Side-population_cell_Undefined_Nasopharyngeal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Thymus-derived_regulatory_T_Treg_cell_Thymus_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Basophil_Blood_Chronic_Myeloid_Leukemia_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Basophil_Lung_Chronic_Myeloid_Leukemia_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Bipolar_cell_Eye_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Intestine_Colorectal_Cancer_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Mucous_acinar_cell_Salivary_gland_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Osteogenic_precursor-like_cell_Dermis_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Prostate_progenitor_cell_Prostate_RPCA.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_RPCA.pdf
+    │   │       │   └── pastor_pannotation_integrated_snn_res.1_Thymus-derived_regulatory_T_Treg_cell_Thymus_RPCA.pdf
+    │   │       ├── SCT
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Bipolar_cell_Eye_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_cell_Brain_Brain_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem-like_cell_Undefined_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Blood_Breast_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Blood_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Blood_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Blood_Hepatocellular_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Intestine_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Myometrium_Fibroid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Undefined_Head_and_neck_cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Undefined_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Cardiomyocyte_progenitor_cell_Embryonic_stem_cell_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Esophageal_mucosal_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Interstitial_cell_Bladder_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Intestinal_stem_cell_Colon_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Intestinal_stem_cell_Colon_epithelium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Intestinal_stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Intestinal_stem_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Mesenchymal_stem_cell_Amniotic_fluid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Mucous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Muller_glia_precursor_cell_Retina_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Myofibroblast_Undefined_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Myometrial_stem_cell_Myometrium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Osteogenic_precursor-like_cell_Dermis_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Outer_Pillar_Cell_Inner_Ear_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Peritubular_myoid_cell_Testis_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Primitive_endoderm_cell_Germ_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Prostate_progenitor_cell_Prostate_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Quiescent_small_intestinal_stem_cell_Small_intestine_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Serous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Side-population_cell_Undefined_Nasopharyngeal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Small_intestinal_stem_cell_Small_intestinal_crypt_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Smooth_muscle_cell_Blood_vessel_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Stomach_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.6_Thymus-derived_regulatory_T_Treg_cell_Thymus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Bipolar_cell_Eye_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_cell_Brain_Brain_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem-like_cell_Undefined_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Blood_Breast_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Blood_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Blood_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Blood_Hepatocellular_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Intestine_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Myometrium_Fibroid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Undefined_Head_and_neck_cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Undefined_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Cardiomyocyte_progenitor_cell_Embryonic_stem_cell_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Esophageal_mucosal_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Interstitial_cell_Bladder_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Colon_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Colon_epithelium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Mesenchymal_stem_cell_Amniotic_fluid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Mucous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Muller_glia_precursor_cell_Retina_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Myometrial_stem_cell_Myometrium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Osteogenic_precursor-like_cell_Dermis_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Outer_Pillar_Cell_Inner_Ear_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Primitive_endoderm_cell_Germ_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Prostate_progenitor_cell_Prostate_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Quiescent_small_intestinal_stem_cell_Small_intestine_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Serous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Side-population_cell_Undefined_Nasopharyngeal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Small_intestinal_stem_cell_Small_intestinal_crypt_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Stomach_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.0.8_Thymus-derived_regulatory_T_Treg_cell_Thymus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_B1_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Bipolar_cell_Eye_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_cell_Brain_Brain_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Breast_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Hepatocellular_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Intestine_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Myometrium_Fibroid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Undefined_Head_and_neck_cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Undefined_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Cardiomyocyte_progenitor_cell_Embryonic_stem_cell_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Esophageal_mucosal_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Interstitial_cell_Bladder_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Intestinal_stem_cell_Colon_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Intestinal_stem_cell_Colon_epithelium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Intestinal_stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Intestinal_stem_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Mesenchymal_stem_cell_Amniotic_fluid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Mucous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Muller_glia_precursor_cell_Retina_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Myometrial_stem_cell_Myometrium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Osteogenic_precursor-like_cell_Dermis_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Outer_Pillar_Cell_Inner_Ear_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Primitive_endoderm_cell_Germ_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Prostate_progenitor_cell_Prostate_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Quiescent_small_intestinal_stem_cell_Small_intestine_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Serous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Side-population_cell_Undefined_Nasopharyngeal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Small_intestinal_stem_cell_Small_intestinal_crypt_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Stomach_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_T_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1.2_Thymus-derived_regulatory_T_Treg_cell_Thymus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Bipolar_cell_Eye_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_cell_Brain_Brain_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem-like_cell_Undefined_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Blood_Breast_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Blood_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Blood_Gastric_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Blood_Hepatocellular_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Intestine_Colorectal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Myometrium_Fibroid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Stomach_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Undefined_Head_and_neck_cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cancer_stem_cell_Undefined_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Cardiomyocyte_progenitor_cell_Embryonic_stem_cell_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Esophageal_mucosal_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Interstitial_cell_Bladder_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Intestinal_stem_cell_Colon_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Intestinal_stem_cell_Colon_epithelium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Intestinal_stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Intestinal_stem_cell_Esophagus_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Mesenchymal_stem_cell_Amniotic_fluid_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Mucous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Muller_glia_precursor_cell_Retina_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Myometrial_stem_cell_Myometrium_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Osteogenic_precursor-like_cell_Dermis_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Outer_Pillar_Cell_Inner_Ear_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Primitive_endoderm_cell_Germ_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Prostate_progenitor_cell_Prostate_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Quiescent_small_intestinal_stem_cell_Small_intestine_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Serous_acinar_cell_Salivary_gland_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Side-population_cell_Undefined_Nasopharyngeal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Small_intestinal_stem_cell_Small_intestinal_crypt_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Stem_cell_Esophagus_Esophageal_Adenocarcinoma_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_SCT.pdf
+    │   │       │   ├── pastor_pannotation_integrated_snn_res.1_Stomach_stem_cell_Stomach_SCT.pdf
+    │   │       │   └── pastor_pannotation_integrated_snn_res.1_Thymus-derived_regulatory_T_Treg_cell_Thymus_SCT.pdf
+    │   │       └── Standard
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Bipolar_cell_Eye_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Cancer_stem_cell_Intestine_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Corneal_limbal_stem_cell_Limbal_epithelium_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Gastric_stem_cell_Gastric_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Incisor_epithelial_stem_cell_Embryo_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Intestinal_stem_cell_Gastrointestinal_tract_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Mucous_acinar_cell_Salivary_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Osteogenic_precursor-like_cell_Dermis_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Prostate_progenitor_cell_Prostate_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Somatic_stem_cell_Endometrium_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Gastric_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Stem_cell_Kidney_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.6_Thymus-derived_regulatory_T_Treg_cell_Thymus_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Bipolar_cell_Eye_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Cancer_stem_cell_Intestine_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Corneal_limbal_stem_cell_Limbal_epithelium_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Gastric_stem_cell_Gastric_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Incisor_epithelial_stem_cell_Embryo_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Intestinal_stem_cell_Gastrointestinal_tract_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Mucous_acinar_cell_Salivary_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Osteogenic_precursor-like_cell_Dermis_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Prostate_progenitor_cell_Prostate_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Somatic_stem_cell_Endometrium_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Gastric_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Stem_cell_Kidney_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.0.8_Thymus-derived_regulatory_T_Treg_cell_Thymus_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Bipolar_cell_Eye_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_cell_Brain_Brain_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Oral_cavity_Oral_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Gastric_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem-like_cell_Undefined_Head_And_Neck_Squamous_Cell_Carcinoma_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Breast_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Gastric_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Head_And_Neck_Squamous_Cell_Carcinoma_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Blood_Hepatocellular_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Gastrointestinal_tract_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Intestine_Colorectal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Myometrium_Fibroid_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Peripheral_blood_Prostate_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Stomach_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Cancer_stem_cell_Undefined_Head_and_neck_cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Mesenchymal_stem_cell_Amniotic_fluid_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Mucous_acinar_cell_Salivary_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Muller_glia_precursor_cell_Retina_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Myometrial_stem_cell_Myometrium_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Osteogenic_precursor-like_cell_Dermis_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Outer_Pillar_Cell_Inner_Ear_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Prostate_progenitor_cell_Prostate_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Serous_acinar_cell_Salivary_gland_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Side-population_cell_Undefined_Nasopharyngeal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Stem_cell_Gastrointestinal_tract_Intestinal_Cancer_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1.2_Thymus-derived_regulatory_T_Treg_cell_Thymus_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1_Basophil_Blood_Chronic_Myeloid_Leukemia_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1_Basophil_Lung_Chronic_Myeloid_Leukemia_Standard.pdf
+    │   │           ├── pastor_pannotation_integrated_snn_res.1_Fibroblast_Pancreas_Pancreatic_Ductal_Adenocarcinomas_Standard.pdf
+    │   │           └── pastor_pannotation_integrated_snn_res.1_Thymus-derived_regulatory_T_Treg_cell_Thymus_Standard.pdf
+    │   └── tables
+    │       ├── dataset_characterization
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.6_RPCA.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.6_SCT.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.6_Standard.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.8_RPCA.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.8_SCT.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.0.8_Standard.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1.2_RPCA.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1.2_SCT.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1.2_Standard.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1_RPCA.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1_SCT.txt
+    │       │   ├── pastor_celltype_scores_cellmarker_integrated_snn_res.1_Standard.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.6_RPCA.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.6_SCT.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.6_Standard.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.8_RPCA.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.8_SCT.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.0.8_Standard.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1.2_RPCA.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1.2_SCT.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1.2_Standard.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1_RPCA.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1_SCT.txt
+    │       │   ├── pastor_celltype_scores_panglaoDB_integrated_snn_res.1_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.6_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.6_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.6_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.8_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.8_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.0.8_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1.2_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1.2_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1.2_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_clusters_integrated_snn_res.1_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.6_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.6_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.6_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.8_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.8_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.0.8_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1.2_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1.2_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1.2_Standard.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1_RPCA.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1_SCT.txt
+    │       │   ├── pastor_meanGE_RNA_integrated_snn_res.1_Standard.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.6_RPCA_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.6_SCT_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.6_Standard_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.8_RPCA_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.8_SCT_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.0.8_Standard_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.1.2_RPCA_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.1.2_SCT_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.1.2_Standard_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.1_RPCA_70.txt
+    │       │   ├── pastor_possible_cell_types_integrated_snn_res.1_SCT_70.txt
+    │       │   └── pastor_possible_cell_types_integrated_snn_res.1_Standard_70.txt
+    │       ├── dge_plots
+    │       │   ├── RPCA
+    │       │   │   ├── conserved_markers
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_18_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_18_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_19_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_19_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_20_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_21_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   │   └── pastor_conservedMarkers_cluster_9_integrated_snn_res.1_RPCA.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_RPCAS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_RPCAS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_RPCAS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCA.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_RPCAS4.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.1_RPCA.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.0.6_RPCA.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.0.8_RPCA.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.1.2_RPCA.txt
+    │       │   │   └── pastor_top100_markers_integrated_snn_res.1_RPCA.txt
+    │       │   ├── SCT
+    │       │   │   ├── conserved_markers
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_18_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_18_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_19_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_20_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.6_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.8_SCT.txt
+    │       │   │   │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.1.2_SCT.txt
+    │       │   │   │   └── pastor_conservedMarkers_cluster_9_integrated_snn_res.1_SCT.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCT.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.6_SCTS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCT.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.0.8_SCTS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCT.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1.2_SCTS4.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCT.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS1.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS2.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS3.txt
+    │       │   │   ├── pastor_clusterProportions_integrated_snn_res.1_SCTS4.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.0.6_SCT.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.0.8_SCT.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.1.2_SCT.txt
+    │       │   │   ├── pastor_markers_integrated_snn_res.1_SCT.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.0.6_SCT.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.0.8_SCT.txt
+    │       │   │   ├── pastor_top100_markers_integrated_snn_res.1.2_SCT.txt
+    │       │   │   └── pastor_top100_markers_integrated_snn_res.1_SCT.txt
+    │       │   └── Standard
+    │       │       ├── conserved_markers
+    │       │       │   ├── X
+    │       │       │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_0_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_10_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_11_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_12_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_13_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_14_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_15_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_16_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_17_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_1_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_2_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_3_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_4_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_5_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_6_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_7_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1.2_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_8_integrated_snn_res.1_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.6_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.0.8_Standard.txt
+    │       │       │   ├── pastor_conservedMarkers_cluster_9_integrated_snn_res.1.2_Standard.txt
+    │       │       │   └── pastor_conservedMarkers_cluster_9_integrated_snn_res.1_Standard.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.6_Standard.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS1.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS2.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS3.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.6_StandardS4.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.8_Standard.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS1.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS2.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS3.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.0.8_StandardS4.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1.2_Standard.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS1.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS2.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS3.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1.2_StandardS4.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1_Standard.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS1.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS2.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS3.txt
+    │       │       ├── pastor_clusterProportions_integrated_snn_res.1_StandardS4.txt
+    │       │       ├── pastor_markers_integrated_snn_res.0.6_Standard.txt
+    │       │       ├── pastor_markers_integrated_snn_res.0.8_Standard.txt
+    │       │       ├── pastor_markers_integrated_snn_res.1.2_Standard.txt
+    │       │       ├── pastor_markers_integrated_snn_res.1_Standard.txt
+    │       │       ├── pastor_top100_markers_integrated_snn_res.0.6_Standard.txt
+    │       │       ├── pastor_top100_markers_integrated_snn_res.0.8_Standard.txt
+    │       │       ├── pastor_top100_markers_integrated_snn_res.1.2_Standard.txt
+    │       │       └── pastor_top100_markers_integrated_snn_res.1_Standard.txt
+    │       ├── msig
+    │       │   ├── RPCA
+    │       │   │   ├── pastor_integrated_snn_res.0.6_11_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_12_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_13_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_13_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_13_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_14_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_14_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_2_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_3_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_3_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_4_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_4_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_7_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_12_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_hallmarks_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_14_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_14_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_2_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_3_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_3_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_4_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_4_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_7_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_10_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_11_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_12_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_13_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_13_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_13_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_14_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_14_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_2_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_3_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_3_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_4_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_4_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_7_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_11_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_12_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_13_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_13_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_13_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_14_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_14_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_2_C2_CP_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_3_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_3_C8_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_4_C5_RPCA.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_4_C8_RPCA.csv
+    │       │   │   └── pastor_integrated_snn_res.1_7_C8_RPCA.csv
+    │       │   ├── SCT
+    │       │   │   ├── pastor_integrated_snn_res.0.6_12_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_13_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_13_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_14_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_1_C2_CP_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_3_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_3_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_4_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_4_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.6_8_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_10_hallmarks_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_13_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_15_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_15_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_1_C2_CP_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_3_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_3_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_4_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_4_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.0.8_8_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_12_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_13_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_13_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_14_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_15_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_15_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_1_C2_CP_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_3_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_3_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_4_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_4_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1.2_8_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_12_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_13_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_13_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_14_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_15_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_15_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_1_C2_CP_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_3_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_3_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_4_C5_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_4_C8_SCT.csv
+    │       │   │   ├── pastor_integrated_snn_res.1_7_C2_CP_SCT.csv
+    │       │   │   └── pastor_integrated_snn_res.1_8_C8_SCT.csv
+    │       │   └── Standard
+    │       │       ├── pastor_integrated_snn_res.0.6_10_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_11_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_11_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_11_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_11_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_12_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_12_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_2_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_3_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_3_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_3_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_5_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_5_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.6_7_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_10_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_11_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_11_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_11_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_11_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_12_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_12_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_2_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_3_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_3_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_5_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_5_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_7_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.0.8_9_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_10_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_11_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_11_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_11_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_11_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_12_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_12_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_2_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_3_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_3_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_3_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_5_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_5_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1.2_7_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_10_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_11_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_11_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_11_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_11_hallmarks_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_12_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_12_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_2_C2_CP_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_3_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_3_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_5_C5_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_5_C8_Standard.csv
+    │       │       ├── pastor_integrated_snn_res.1_7_C8_Standard.csv
+    │       │       └── pastor_integrated_snn_res.1_9_C8_Standard.csv
+    │       ├── pastor_RPCA_metatags.txt
+    │       ├── pastor_SCT_metatags.txt
+    │       └── pastor_Standard_metatags.txt
+    ├── RDS
+    │   ├── pastor_merged_samples.RDS
+    │   └── pastor_transformed.RDS
+    ├── figures
+    │   ├── pastor_elbow_plot.pdf
+    │   ├── qc_1.pdf
+    │   └── qc_2.pdf
+    └── tables
+        ├── pastor_resolution_list.txt
+        ├── sigPC.txt
+        └── sigPCs.txt
+
+50 directories, 970 files

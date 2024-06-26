@@ -1,0 +1,109 @@
+'''
+Author:	E. Reichenberger
+Date:		8.13.2021
+'''
+log_directory = 'logs/celltype_annotation/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The cell annotation pipeline completed with no errors.")
+  shell("mail -s 'The cell annotation pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The cell annotation pipeline did not complete without errors."),
+  shell("mail -s 'The cell annotation pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule calculate_cluster_averages:
+	input:
+		script = 'src/scripts/dataset_characterization.R',
+		dge = dge_files
+	params:
+		project = PROJECT,
+		method = METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		components = COMPONENTS_S,
+		reso_file = resolution_file,
+		sample_file = integrated_seurat_objects
+	output:
+		cluster_means = cluster_mean_files
+	log:
+		log_output = log_directory + PROJECT.lower() + '_cluster_averages.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.method} {params.rpath} {params.storage} {params.components} {params.reso_file} {params.sample_file} 2> {log.log_output}"
+
+rule calculate_averages:
+	input:
+		script = 'src/scripts/calculate_sample_mean.py',
+		files = cluster_mean_files
+	output:
+		out_files = dataset_mean_files,
+	log:
+		log_output = log_directory + PROJECT.lower() + '_dataset_averages.log'
+	shell:
+		"python {input.script} {input.files} 2> {log.log_output}"
+
+rule filter_score_files:
+	input:
+		script = 'src/scripts/score_gene_sets.py',
+		in_files = dataset_mean_files
+	params:
+		path = characterization_path,
+		pang_dir = reference_panglao_dir,
+		cellmarker_dir = reference_cellmarker_dir,
+		markers = marker_files,
+		threshold = MARKER_THRESHOLD,
+	output:
+		out_files = possible_markers
+	log:
+		log_output = log_directory + PROJECT.lower() + '_scoring.log'
+	shell:
+		"python {input.script} {params.path} {params.pang_dir} {params.cellmarker_dir} {params.threshold} {params.markers} 2> {log.log_output}"
+
+rule plot_cell_markers:
+	input:
+		script = 'src/scripts/plot_cell_markers_ALL.R',
+		in_file = possible_markers
+	params:
+		project = PROJECT,
+		method = METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		components = COMPONENTS_S,
+		reso_file = resolution_file,
+		path = figures_path,
+		sample_file1 = integrated_seurat_objects[0],
+		sample_file2 = integrated_seurat_objects[1], 
+		sample_file3 = integrated_seurat_objects[2], 
+		possible_file_directory = characterization_path,
+		threshold = MARKER_THRESHOLD,
+		user_gene_file = USER_GENE_FILE,
+	output:
+		out_files = PROJECT.lower() + '_celltype_annotation_plot_dummy.txt'
+	log:
+		log_output = log_directory + PROJECT.lower() + '_plot_cell_markers.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.method} {params.rpath} {params.storage} {params.components} {params.reso_file} {params.path} {params.sample_file1} {params.sample_file2} {params.sample_file3}  {params.possible_file_directory} {params.threshold} {params.user_gene_file} 2> {log.log_output} && touch {output.out_files}"
+
+rule msigdbr:
+	input:
+		script = 'src/scripts/migsig_for_annotation_ALL.R',
+		in_file = PROJECT.lower() + '_celltype_annotation_plot_dummy.txt'
+	params:
+		project = PROJECT,
+		method = METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		reso_file = resolution_file,
+		organism=ORGANISM,
+		path = migsig_path, #migsig_path = 'data/endpoints/' + PROJECT.lower() + '/analysis/' + PCA + '/tables/msig/'
+		sample_file1 = integrated_seurat_objects[0],
+		sample_file2 = integrated_seurat_objects[1], 
+		sample_file3 = integrated_seurat_objects[2], 
+	output:
+		out_files = PROJECT.lower() + '_msig_annotation_plot_dummy.txt'
+	log:
+		log_output = log_directory + PROJECT.lower() + '_msig_annotation.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.method} {params.rpath} {params.storage} {params.reso_file} {params.organism} {params.path} {params.sample_file1} {params.sample_file2} {params.sample_file3} 2> {log.log_output} && touch {output.out_files}"

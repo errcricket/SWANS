@@ -1,0 +1,15 @@
+# Final Normalization Method (e.g., RPCA, SCT, Standard)
+FINAL_METHOD: Standard
+
+#Final Resolution Value (e.g., 0.5)
+FINAL_RESOLUTION: 0.5
+
+#Path to Cluster Annotation File
+CLUSTER_ANNOTATION_FILE: final_cluster_assignment.txt
+
+#If user has performed additional work on seurat object
+# Supply final Seurat Object (y/n)
+USER_SUPPLIED_SEURAT_OBJECT: n
+
+# full path & file name of user-supplied seurat object
+PATH_USER_SUPPLIED_SEURAT_OBJECT: 

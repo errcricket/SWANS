@@ -1,0 +1,240 @@
+```{r include = FALSE}
+showWarnings = FALSE
+
+library(tableHTML)
+library(yaml)
+library(magick)
+library(pdftools)
+library(knitr)
+library(miscTools)
+library(plyr) 
+library(DT) 
+library(dplyr) 
+
+configs = 'configs/'
+proj_info <- read_yaml(paste0(configs,'local_configs.yaml'))
+
+project <- proj_info$`PROJECT`   
+organism <- proj_info$`ORGANISM`
+sequencing <- proj_info$`SEQUENCING`
+method <- proj_info$`METHOD`
+resolution <- proj_info$`RESOLUTION`
+matrix <- proj_info$`MATRIX`
+resolution <- proj_info$`RESOLUTION`
+mito <- proj_info$`MITO`
+mito_regression <- proj_info$`MITO_REGRESSION`
+resolution <- proj_info$`RESOLUTION`
+conserved_genes <- proj_info$`CONSERVED_GENES`
+
+if (proj_info$METHOD == 'ALL') 
+{
+  proj_info$METHODS <- c('RPCA', 'SCT', 'Standard')
+} else {
+  proj_info$METHOD <- c(proj_info$METHOD)
+}
+
+methods <- proj_info$METHODS
+resolution <- as.list(strsplit(resolution, ' '))[[1]]
+```
+---
+title: `r toupper(project)` Project
+date: '`r Sys.Date()`'
+output: pdf_document
+---
+
+### User Parameter Overview
+Organism: `r proj_info$ORGANISM`   
+Integration Method(s): `r proj_info$METHODS`     
+Resolution(s): `r proj_info$RESOLUTION`   
+Starting 10X Data Format: `r proj_info$MATRIX`   
+Initial Principal Components: `r proj_info$ICOMPONENTS`   
+Storage Method: `r proj_info$STORAGE`    
+Mitochondria Threshold: `r proj_info$MITO`    
+Mitochondria Regression: `r proj_info$MITO_REGRESSION`   
+Minimum Feature Threshold: `r proj_info$MIN_FEATURE_THRESHOLD`   
+Maximum Feature Threshold: `r proj_info$MAX_FEATURE_THRESHOLD`   
+Cell Cycling Regression: `r proj_info$CCREGRESSION`    
+Cell Cycling Regression Method: `r proj_info$CCREGRESSION_METHOD`   
+Calculate Conserved Genes: `r proj_info$CONSERVED_GENES`   
+Annotation Marker Threshold: `r proj_info$MARKER_THRESHOLD`    
+User Supplied Marker File(s): `r proj_info$USER_GENE_FILE`   
+
+```{r include = FALSE}
+
+html_output_dir <- paste0('html_report_', project, '/')
+sample_list <- read.csv('samples.sample_list', sep = '\t')
+project_dir <- paste0('data/endpoints/', project, '/')
+estimate_list_10X <- c()
+estimate_list_DF <- c()
+
+sample_links <- c()
+for(s in sample_list[,1]) 
+{
+  sample_links <- append(sample_links, paste0('[', s, ']', '(', html_output_dir, s, '.html)'))
+  
+  barcode_10X <- paste0(project_dir, s, '/10X/outs/barcodes.tsv.gz')
+  wc_10X <- paste0('zcat < ', barcode_10X, ' | wc -l')
+  #Note: Linux == wc_10X <- paste0('zcat ', barcode_10X, ' | wc -l')
+  estimate_list_10X <- append(estimate_list_10X, system(wc_10X, intern=TRUE))
+  
+  barcode_doubletF <- paste0(project_dir, s, '/doubletFinder/barcodes.tsv.gz')
+  wc_DF <- paste0('zcat < ', barcode_doubletF, ' | wc -l')
+  estimate_list_DF <- append(estimate_list_DF, system(wc_DF, intern=TRUE))
+}
+
+samples_display <- data.frame(Name = sample_links, Experimental_Condition = sample_list[,2], Initial_Cell_Count = estimate_list_10X, PostDF_Cell_Count=estimate_list_DF)
+
+figures_dir <- paste0(project_dir, 'analysis/figures/')
+qc1 <- image_read_pdf(paste0(figures_dir,'qc_1.pdf'))
+qc2 <- image_read_pdf(paste0(figures_dir,'qc_2.pdf'))
+elbow <- image_read_pdf(paste0(figures_dir, project, '_elbow_plot.pdf'))
+```
+
+### Data Overview
+
+### Samples:
+***
+```{r echo = FALSE}
+kable(samples_display, align = "c", format = "html", table.attr = "style='width:70%;'")
+```
+###### PostDF_Cell_Count: DF == DoubletFinder
+***
+
+### QC
+#### Initial QC:
+***
+
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(qc1[1], info=F)
+```
+
+#### Post Filtering QC:
+***
+
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(qc2, info=F)
+```
+
+```{r include=FALSE}
+sig <- read.csv(paste0(project_dir, 'analysis/tables/sigPC.txt'), sep='', header=T)
+sigPC <- sig$x
+```
+***
+
+## Analysis
+#### Elbow Plot: 
+##### `r sigPC` Components Selected    
+
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(elbow, info=F)
+```
+
+```{r include = FALSE}
+
+cluster_file_name <- '_clusterProportions_integrated_snn_res.'
+
+if (proj_info$RESOLUTION == 'I') {
+  res <- c(0.5, 0.8, 1.2)
+} else if (proj_info$RESOLUTION != 0) {
+  res <- c(proj_info$RESOLUTION)
+  } else {
+  res <- c(0.8)
+  }
+
+res <- as.list(strsplit(res, ' ')[[1]])
+res[3] <- '1'
+
+#list of methods
+method_col <- c()
+i <- 1
+for(m in methods) {
+  for(r in res) {
+    method_col[i] <- m
+    i <- i + 1
+  }
+}
+
+#list of resolutions (for each method)
+res_col <- c()
+j <- 1
+for(m in methods) {
+  for(r in res) {
+    res_col[j] <- r
+    j <- j + 1
+  }
+}
+
+lappend <- function (lst, ...){
+lst <- c(lst, list(...))
+  return(lst)
+}
+
+list_vars <- list()
+k <- 1
+for(m in methods) {
+  filepath <- paste(project_dir, '/analysis/PCA_', sigPC, '/tables/dge_plots/', m, '/', project,  cluster_file_name, sep = '')
+  for(r in res) {
+    file <- read.csv(paste0(filepath, r, '_', m, '.txt'), sep = '\t', header = TRUE)
+    print(file)
+    sizes <- 
+    list_vars <- lappend(list_vars, file[1,])
+    k <- k + 1
+  }
+}
+
+ max_ncol <- 0
+ for(l in list_vars) {
+   max_ncol <- max(max_ncol, ncol(l))
+ }
+ 
+ eqlength_list_vars <- list()
+ for(l in list_vars) {
+   if(ncol(l) < max_ncol) {
+     diff <- max_ncol - ncol(l)
+     for(t in 1:diff) {
+       new <- c('NA')
+       l[ , ncol(l) + 1] <- new
+       colnames(l)[ncol(l)] <- paste0('X', ncol(l) - 1)
+     }
+   }
+   eqlength_list_vars <- lappend(eqlength_list_vars, l)
+ }
+ 
+ cluster_proportions <- data.frame(matrix(NA, ncol = max_ncol, nrow = i - 1))
+ r <- 1
+ for(l in eqlength_list_vars) {
+   cluster_proportions[r,] <- l[1,]
+   r <- r + 1
+ }
+ 
+resmet <- cbind(method_col, res_col)
+ 
+resmetclusters <- cbind(resmet, cluster_proportions)
+ 
+resmetclusters$pdf <-  paste0('[Cluster Plots](', project_dir, 'analysis/PCA_', sigPC, '/figures/dge_plots/', resmetclusters$method_col, '/', project, '_clusterProportions_integrated_snn_res.', resmetclusters$res_col, '_', resmetclusters$method_col, '.pdf)')
+
+new_df <- resmetclusters %>% select('pdf', everything())
+resmetclusters <- new_df %>% select('method_col', everything())
+```
+***
+
+### List of All Output
+```{r echo = F}
+output_file = noquote(paste0('html_report_', project, '/', project, '_file_list.html'))
+
+##### Text files located here: `r paste0(project_dir, 'analysis/PCA_', sigPC, '/tables/dge_plots/METHOD/')`  
+##### Figure files located here: `r paste0(project_dir, 'analysis/PCA_', sigPC, '/figures/dge_plots/METHOD/')`
+```
+
+#### [Project Output File List](`r output_file`)
+
+### Cluster Proportions
+***
+Text files location: data/endpoints/project_name/analysis/PCA_\*/tables/dge_plots/METHOD/     
+Figure files location: data/endpoints/project_name/analysis/PCA_\*/figures/dge_plots/METHOD/   
+
+***
+
+```{r echo = FALSE, out.width='60%'}
+kable(resmetclusters)
+```

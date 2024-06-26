@@ -1,0 +1,51 @@
+'''
+Author:	E. Reichenberger
+Date:		2.16.2021
+
+Notes: 
+	* Script that will find the number of samples to analyze. Based on this number, a specific make_mergeR.py script will be called. 
+'''
+
+length = len(SAMPLE_LIST)
+
+python_file = ''
+if length == 1:
+	python_file = 'make_mergeR_1.py'
+if length > 1:
+	python_file = 'make_mergeR.py'
+
+#paths
+log_directory = 'logs/make_merger_file/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The merger pipeline completed with no errors.")
+  shell("mail -s 'The merger pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The merger pipeline did not complete without errors."),
+  shell("mail -s 'The merger pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule create_dynamic_script:
+	input:
+		script = 'src/scripts/' + python_file,
+		doubletFinder_output = cds_input
+	params:
+		sample = 'samples.sample_list',
+		#experiment =  'samples.experimental_conditions',
+		project = PROJECT,
+		organism = ORGANISM,
+		r_lib_path = RPATH,
+		sequencing = SEQUENCING,
+		mito = MITO,
+		storage = STORAGE,
+		min_feature_threshold = MIN_FEATURE_THRESHOLD,
+		max_feature_threshold = MAX_FEATURE_THRESHOLD,
+	output:
+		merger_file = 'src/scripts/create_merged_dataset.R',
+	log:
+		log_output = log_directory + PROJECT +  '_merger.log'
+	shell:
+		"python {input.script} {params.sample} {params.project} {params.organism} {params.r_lib_path} {params.sequencing} {params.mito} {params.storage} {params.min_feature_threshold} {params.max_feature_threshold}  2> {log.log_output}" 
+		#"python {input.script} {params.sample} {params.project} {params.organism} {params.r_lib_path} {params.sequencing} {params.mito} {params.storage} {params.experiment} {params.min_feature_threshold} {params.max_feature_threshold}  2> {log.log_output}" 

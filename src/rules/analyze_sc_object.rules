@@ -1,0 +1,39 @@
+'''
+Author:	E. Reichenberger
+Date:		2.19.2021
+'''
+
+log_directory = 'logs/Seurat_analysis_exploratory/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+	print("The exploratory Seurat object pipeline completed with no errors.")
+	shell("mail -s 'The exploratory Seurat object creation pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+	print("The exploratory Seurat object pipeline did not complete without errors."),
+	shell("mail -s 'The exploratory Seurat object creation pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule exploratory_sc_object:
+	input:
+		script = sc_r_file, #'src/scripts/analyze_sc_object.R', 
+		ex_file = sigs
+	params:
+		components = COMPONENTS_S,
+		project = PROJECT,
+		method = METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		merged_sample_file = storage_file, 
+		cell_cycling = CCREGRESSION,
+		cc_method = CCREGRESSION_METHOD,
+		organism = ORGANISM,
+		mito_regression = MITO_REGRESSION,
+		resolution = RESOLUTION,
+	output:
+		out = sc_objects 
+	log:
+		log_output = log_directory + PROJECT.lower() + '_analyze_sc_object.log'
+	shell:
+		"Rscript {input.script} {params.components} {params.project} {params.method} {params.rpath} {params.mito_regression} {params.storage} {params.cell_cycling} {params.cc_method} {params.organism} {params.merged_sample_file} {params.resolution} 2> {log.log_output}"

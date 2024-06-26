@@ -1,0 +1,35 @@
+'''
+Author:	E. Reichenberger
+Date:		2.22.2021
+'''
+
+#paths
+log_directory = 'logs/merge/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The Sample Merging pipeline completed with no errors.")
+  shell("mail -s 'The Sample Merging pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The Sample Merging pipeline did not complete without errors."),
+  shell("mail -s 'The Sample Merging pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule all_merge:
+	input: 
+		storage_file,
+		f1,
+		f2
+
+rule merge_data:
+	input:
+		script = 'src/scripts/create_merged_dataset.R'
+	output: 
+		s = storage_file,
+		f1 = f1,
+		f2 = f2
+	log:
+		log_output = log_directory + PROJECT + '_merging.log'
+	shell:
+		"Rscript {input.script} 2> {log.log_output}"

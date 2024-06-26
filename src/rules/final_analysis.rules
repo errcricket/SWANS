@@ -1,0 +1,36 @@
+'''
+Author:	E. Reichenberger
+Date:		2.19.2021
+'''
+
+log_directory = 'logs/final_analysis/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The final analysis pipeline completed with no errors.")
+  shell("mail -s 'The final analysis pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The final analysis pipeline did not complete without errors."),
+  shell("mail -s 'The final analysis pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule final_analysis:
+	input:
+		script = 'src/scripts/final_analysis.R',
+		char_output = characterization_files
+	params:
+		project = PROJECT,
+		method = FINAL_METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		resolution = final_resolution,
+		seurat_object = final_integrated_seurat_object,
+		celltype_assignment_file = CLUSTER_ANNOTATION_FILE,
+		base_directory = final_directory,
+		seurat_object_final = final_analysed_integrated_seurat_object,
+	output: finals 
+	log:
+		log_output = log_directory + PROJECT.lower() + '_final.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.method} {params.rpath} {params.storage} {params.resolution} {params.seurat_object} {params.celltype_assignment_file} {params.base_directory} {params.seurat_object_final} 2> {log.log_output}"

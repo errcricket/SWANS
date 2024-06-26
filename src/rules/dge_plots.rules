@@ -1,0 +1,35 @@
+'''
+Author:	E. Reichenberger
+Date:		2.19.2021
+'''
+
+log_directory = 'logs/DGE_Markers/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The exploratory Seurat DGE and Marker Plots pipeline completed with no errors.")
+  shell("mail -s 'The exploratory Seurat DGE and Marker Plots pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The exploratory Seurat DGE and Marker Plots pipeline did not complete without errors."),
+  shell("mail -s 'The exploratory Seurat DGE and Marker Plots pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule cluster_plots_DGE:
+	input:
+		script = 'src/scripts/create_images_DGE.R',
+		analyze_sc_object_output = sc_objects
+	params:
+		project = PROJECT,
+		method = METHOD,
+		rpath = RPATH,
+		storage=STORAGE,
+		components = COMPONENTS_S,
+		reso_file = resolution_file,
+		conserved_genes = CONSERVED_GENES,
+		sample_files = integrated_seurat_objects 
+	output: dge_files
+	log:
+		log_output = log_directory + PROJECT.lower() + '_DGE.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.method} {params.rpath} {params.storage} {params.components} {params.reso_file} {params.conserved_genes} {params.sample_files} 2> {log.log_output}"

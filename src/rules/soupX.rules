@@ -1,0 +1,35 @@
+# Author:	E. Reichenberger
+# Date:		2.16.2021
+# Notes: #	* The accompanying R script does not work yet for a h5 for or for filtered only files.
+
+# paths
+log_directory = 'logs/soupX/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The  soupX pipeline completed with no errors.")
+  shell("mail -s 'The soupX pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The  soupX pipeline did not complete without errors."),
+  shell("mail -s 'The soupX pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule soupX:
+	input:
+		script = 'src/scripts/soupX.R',
+	params:
+		r_lib_path = RPATH,
+		sample = "{sample}",
+		project = PROJECT,
+		matrix = MATRIX,
+		cr_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/10X/', 
+		s_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/'
+	output:
+		barcodes_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/barcodes.tsv.gz',
+		features_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/features.tsv.gz',
+		matrix_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/matrix.mtx.gz'
+	log:
+		log_output = log_directory + "{sample}_soupX.log"
+	shell:
+		"Rscript {input.script} {params.r_lib_path} {params.sample} {params.matrix} {params.project} {params.cr_path} {params.s_path} 2> {log.log_output}"

@@ -1,0 +1,42 @@
+#'''
+#Author:	E. Reichenberger
+#Date:		3.16.2022
+#'''
+
+# paths
+log_directory = 'logs/doubletFinder/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The doubletFinder pipeline completed with no errors.")
+  shell("mail -s 'The doubletFinder pipeline completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The doubletFinder pipeline did not complete without errors."),
+  shell("mail -s 'The doubletFinder pipeline did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule doubletFinder:
+	input:
+		script = 'src/scripts/doubletFinder.R',
+		barcodes_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/barcodes.tsv.gz',
+		features_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/features.tsv.gz',
+		matrix_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX/matrix.mtx.gz'
+	params:
+		r_lib_path = RPATH,
+		sample = "{sample}",
+		project = PROJECT,
+		components = COMPONENTS,
+		soup_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/soupX',
+		df_path = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder', 
+		organism = ORGANISM,
+		sequencing = SEQUENCING,
+		matrix = MATRIX,
+	output: 
+		barcodes_path_df = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/barcodes.tsv.gz',
+		features_path_df = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/features.tsv.gz',
+		matrix_path_df = 'data/endpoints/' + PROJECT + '/' + '{sample}/doubletFinder/matrix.mtx.gz',
+	log:
+		log_output = log_directory + "{sample}_doubletFinder.log"
+	shell:
+		"Rscript {input.script} {params.r_lib_path} {params.sample} {params.project} {params.components} {params.soup_path} {params.df_path} {params.organism} {params.sequencing} {params.matrix} 2> {log.log_output}"

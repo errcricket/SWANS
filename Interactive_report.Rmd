@@ -1,0 +1,394 @@
+---
+#showWarnings = FALSE
+output: html_document
+runtime: shiny
+---
+```{r include = FALSE}
+library(tableHTML)
+library(yaml)
+library(magick)
+library(pdftools)
+library(knitr)
+library(miscTools)
+library(plyr) 
+library(DT) 
+library(dplyr) 
+
+configs = 'configs/'
+proj_info <- read_yaml(paste0(configs,'local_configs.yaml'))
+
+project <- proj_info$`PROJECT`   
+organism <- proj_info$`ORGANISM`
+sequencing <- proj_info$`SEQUENCING`
+method <- proj_info$`METHOD`
+resolution <- proj_info$`RESOLUTION`
+matrix <- proj_info$`MATRIX`
+resolution <- proj_info$`RESOLUTION`
+mito <- proj_info$`MITO`
+mito_regression <- proj_info$`MITO_REGRESSION`
+resolution <- proj_info$`RESOLUTION`
+
+if (proj_info$METHOD == 'ALL') 
+{
+  proj_info$METHODS <- c('RPCA', 'SCT', 'Standard')
+} else {
+  proj_info$METHOD <- c(proj_info$METHOD)
+}
+
+methods <- proj_info$METHODS
+```
+---
+title: `r toupper(project)` Project
+date: '`r Sys.Date()`'
+---
+
+### User Parameter Overview
+Organism: `r proj_info$ORGANISM`   
+Integration Method(s): `r proj_info$METHODS`     
+Resolution(s): `r proj_info$RESOLUTION`   
+Starting 10X Data Format: `r proj_info$MATRIX`   
+Initial Principal Components: `r proj_info$ICOMPONENTS`   
+Storage Method: `r proj_info$STORAGE`    
+Mitochondria Threshold: `r proj_info$MITO`    
+Mitochondria Regression: `r proj_info$MITO_REGRESSION`   
+Minimum Feature Threshold: `r proj_info$MIN_FEATURE_THRESHOLD`   
+Maximum Feature Threshold: `r proj_info$MAX_FEATURE_THRESHOLD`   
+Cell Cycling Regression: `r proj_info$CCREGRESSION`    
+Cell Cycling Regression Method: `r proj_info$CCREGRESSION_METHOD`   
+Annotation Marker Threshold: `r proj_info$MARKER_THRESHOLD`    
+User Supplied Marker File(s): `r proj_info$USER_GENE_FILE`   
+
+```{r include = FALSE}
+
+sample_list <- read.csv('samples.sample_list', sep = '\t')
+estimate_list <- read.csv(paste0('html_report_', project, '/estimates.txt'), header=F, sep = '\t')
+
+sample_links <- c()
+for(s in sample_list[,1]) 
+{
+  #sample_links <- append(sample_links, paste0('<a href=\"', s,'.html\">',s,'</a>'))
+  #sample_links <- append(sample_links, paste0('[', s, ']', '(', s, '.html)'))
+  sample_links <- append(sample_links, paste0('[', s, ']', '(html_report_', project, '/', s, '.html)'))
+}
+
+samples_display <- data.frame(Name = sample_links, Experimental_Condition = sample_list[,2], Initial_Cell_Count = estimate_list$V2)
+
+#samples_display$Initial_Cell_Count <- paste0(samples_display$Initial_Cell_Count, '/outs/html.summary')
+figures_dir <- 'data/endpoints/pastor/analysis/figures/'
+qc1 <- image_read_pdf(paste0(figures_dir,'qc_1.pdf'))
+qc2 <- image_read_pdf(paste0(figures_dir,'qc_2.pdf'))
+elbow <- image_read_pdf(paste0(figures_dir,'pastor_elbow_plot.pdf'))
+```
+
+### Data Overview
+
+### Samples:
+***
+```{r echo = FALSE}
+#datatable(samples_display)
+kable(samples_display, align = "c", format = "html", table.attr = "style='width:70%;'")
+```
+***
+
+### QC
+#### Initial QC:
+***
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(qc1[1], info=F)
+```
+***
+
+#### Post Filtering QC:
+***
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(qc2, info=F)
+```
+***
+
+```{r include=FALSE}
+sig <- read.csv(paste0('data/endpoints/', project, '/analysis/tables/sigPC.txt'), sep='', header=T)
+sigPC <- sig$x
+```
+***
+
+## Analysis
+#### Elbow Plot: 
+##### `r sigPC` Components Selected
+```{r echo = FALSE, message = FALSE, out.height='50%', out.width='80%'}
+print(elbow, info=F)
+```
+
+```{r include = FALSE}
+
+cluster_file_name <- '_clusterProportions_integrated_snn_res.'
+folder = paste0('data/endpoints/', project, '/')
+
+if (proj_info$RESOLUTION == 'I') {
+  res <- c(0.5, 0.8, 1.2)
+} else if (proj_info$RESOLUTION != 0) {
+  res <- c(proj_info$RESOLUTION)
+  } else {
+  res <- c(0.8)
+  }
+
+res <- as.list(strsplit(res, ' ')[[1]])
+res[3] <- '1'
+
+#list of methods
+method_col <- c()
+i <- 1
+for(m in methods) {
+  for(r in res) {
+    method_col[i] <- m
+    i <- i + 1
+  }
+}
+
+#list of resolutions (for each method)
+res_col <- c()
+j <- 1
+for(m in methods) {
+  for(r in res) {
+    res_col[j] <- r
+    j <- j + 1
+  }
+}
+
+lappend <- function (lst, ...){
+lst <- c(lst, list(...))
+  return(lst)
+}
+
+list_vars <- list()
+k <- 1
+for(m in methods) {
+  filepath <- paste(folder, '/analysis/PCA_', sigPC, '/tables/dge_plots/', m, '/', project,  cluster_file_name, sep = '')
+  for(r in res) {
+    file <- read.csv(paste0(filepath, r, '_', m, '.txt'), sep = '\t', header = TRUE)
+    print(file)
+    sizes <- 
+    list_vars <- lappend(list_vars, file[1,])
+    k <- k + 1
+  }
+}
+
+ max_ncol <- 0
+ for(l in list_vars) {
+   max_ncol <- max(max_ncol, ncol(l))
+ }
+ 
+ eqlength_list_vars <- list()
+ for(l in list_vars) {
+   if(ncol(l) < max_ncol) {
+     diff <- max_ncol - ncol(l)
+     for(t in 1:diff) {
+       new <- c('NA')
+       l[ , ncol(l) + 1] <- new
+       colnames(l)[ncol(l)] <- paste0('X', ncol(l) - 1)
+     }
+   }
+   eqlength_list_vars <- lappend(eqlength_list_vars, l)
+ }
+ 
+ cluster_proportions <- data.frame(matrix(NA, ncol = max_ncol, nrow = i - 1))
+ r <- 1
+ for(l in eqlength_list_vars) {
+   cluster_proportions[r,] <- l[1,]
+   r <- r + 1
+ }
+ 
+resmet <- cbind(method_col, res_col)
+ 
+resmetclusters <- cbind(resmet, cluster_proportions)
+ 
+resmetclusters$pdf <-  paste0('[Cluster Plots](data/endpoints/', project, '/analysis/PCA_', sigPC, '/figures/dge_plots/', resmetclusters$method_col, '/pastor_clusterProportions_integrated_snn_res.', resmetclusters$res_col, '_', resmetclusters$method_col, '.pdf)')
+
+new_df <- resmetclusters %>% select('pdf', everything())
+resmetclusters <- new_df %>% select('method_col', everything())
+```
+***
+
+### List of All Output
+```{r echo = F}
+output_file = noquote(paste0('html_report/', project, '_file_list.html'))
+```
+
+[Project Output File List](`r output_file`)
+
+### Cluster Proportions
+##### Text files located here: `r paste0('data/endpoints/', project, '/analysis/PCA_', sigPC, '/tables/dge_plots/METHOD/')`  
+##### Figure files located here: `r paste0('data/endpoints/', project, '/analysis/PCA_', sigPC, '/figures/dge_plots/METHOD/')`
+
+```{r echo = FALSE, out.width='60%'}
+#datatable(resmetclusters)
+kable(resmetclusters)
+```
+
+```{r setup, warnings=FALSE, echo=FALSE}
+# Set up
+suppressPackageStartupMessages(library(Seurat))
+suppressPackageStartupMessages(library(shiny))
+suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(rsconnect))
+suppressPackageStartupMessages(library(magick))
+
+proj_name <- "data/endpoints/pastor/"
+
+dir.create(paste0('html_report/compare_images'))
+
+res_choices <- c(0.6, 0.8, 1.0, 1.2)
+method_choices <- c("RPCA", "SCT", "Standard")
+
+shinyApp(
+  
+  ui <- fluidPage(
+    h2("Plots"),
+    h6('Figure files located here: data/endpoints/project_name/analysis/PCA_*/figures/dge_plots/METHOD/project_initial_cluster_plots_integrated_snn_res.RESOLUTION_METHOD.pdf'),
+    h5('A method and resolution must be selected before any figures will appear. This step may take several minutes to appear.'),
+    fluidRow(
+      column(4, 
+             selectInput("method1", label = "Method for Plot 1:",
+                choices = method_choices),
+             selectInput("res1", label = "Resolution for Plot 1:",
+                choices = res_choices)),
+      column(4,
+             selectInput("method2", label = "Method for Plot 2:",
+                choices = method_choices),
+             selectInput("res2", label = "Resolution for Plot 2:",
+                choices = res_choices)),
+      column(4,
+             selectInput("method3", label = "Method for Plot 3:",
+                choices = method_choices),
+             selectInput("res3", label = "Resolution for Plot 3:",
+                choices = res_choices))
+    ),
+    fluidRow(
+      column(4, imageOutput('plot1', width = "auto")),
+      column(4, imageOutput('plot2', width = "auto")),
+      column(4, imageOutput('plot3', width = "auto"))
+    ),
+    h2('Tables'),
+    h6('Text files located here: data/endpoints/project_name/analysis/PCA_*/tables/dge_plots/METHOD/project_name_markers_integrated_snn_res.RESOLUTION_METHOD.txt'),
+    h5('To look at a certain cluster of a resolution and method, enter the appropriate cluster number. If the entered number is negative, a table with all cluster numbers will be displayed. If a postive but invalid cluster number is entered, no table will be displayed.'),
+ 
+    fluidRow(
+      column(3, 
+             numericInput('cluster1', 'Cluster number from plot 1', value = -1, min = 0, max = 100)),
+      column(3, offset = 1, 
+             numericInput('cluster2', 'Cluster number from plot 2', value = -1, min = 0, max = 100)),
+      column(3, offset = 1, 
+             numericInput('cluster3', 'Cluster number from plot 3', value = -1, min = 0, max = 100))
+    ),
+    fluidRow(
+      column(3,
+             dataTableOutput('top100_bycluster_tbl1')
+             ),
+      column(3, offset = 1,
+             dataTableOutput('top100_bycluster_tbl2')
+             ),
+      column(3, offset = 1,
+             dataTableOutput('top100_bycluster_tbl3')
+             )
+    )
+  ),
+  
+  
+  server <- function(input, output) {
+    
+    output$plot1 <- renderImage({
+      doublet_pages<-image_read_pdf(paste0(proj_name,'/analysis/PCA_12/figures/dge_plots/', 
+                                        input$method1, '/pastor_initial_cluster_plots_integrated_snn_res.', 
+                                        input$res1, '_', input$method1, '.pdf'))
+      doublet_pages[7] %>% image_write(., path = paste0('html_report/compare_images/', input$method1, input$res1, '_image.png'), format = 'png')
+    
+      list(src = paste0('html_report/compare_images/', input$method1, input$res1, '_image.png'),
+         alt = paste(input$method1, input$res1), width = 250, height = 250)
+
+      }, deleteFile = TRUE)
+
+    
+    output$plot2 <- renderImage({
+      doublet_pages<-image_read_pdf(paste0(proj_name,'/analysis/PCA_12/figures/dge_plots/', 
+                                        input$method2, '/pastor_initial_cluster_plots_integrated_snn_res.', 
+                                        input$res2, '_', input$method2, '.pdf'))
+      doublet_pages[7] %>% image_write(., path = paste0('html_report/compare_images/', input$method2, input$res2, '_image.png'), format = 'png')
+    
+      list(src = paste0('html_report/compare_images/', input$method2, input$res2, '_image.png'),
+         alt = paste(input$method2, input$res2), width = 250, height = 250)
+
+      }, deleteFile = TRUE)
+    
+    
+    output$plot3 <- renderImage({
+       doublet_pages<-image_read_pdf(paste0(proj_name,'/analysis/PCA_12/figures/dge_plots/', 
+                                        input$method3, '/pastor_initial_cluster_plots_integrated_snn_res.', 
+                                        input$res3, '_', input$method3, '.pdf'))
+      doublet_pages[7] %>% image_write(., path = paste0('html_report/compare_images/', input$method3, input$res3, '_image.png'), format = 'png')
+    
+      list(src = paste0('html_report/compare_images/', input$method3, input$res3, '_image.png'),
+         alt = paste(input$method3, input$res3), width = 250, height = 250)
+
+      }, deleteFile = TRUE)
+    
+    col_names <- c('avg_log2FC', 'p_val_adj', 'cluster', 'gene')
+    new_col_names <- c('log', 'pval', 'cl.', 'gene')
+    
+    output$top100_bycluster_tbl1 <- renderDataTable({
+      orig_top100tbl_1 <- read.table(paste0(proj_name, '/analysis/PCA_12/tables/dge_plots/', input$method1, '/pastor_top100_markers_integrated_snn_res.', input$res1,'_', input$method1, '.txt'), header=TRUE, sep='\t')
+      orig_top100tbl_1$avg_log2FC <- signif(orig_top100tbl_1$avg_log2FC,3)
+      orig_top100tbl_1$p_val_adj <- signif(orig_top100tbl_1$p_val_adj,3)
+      disp_top100tbl_1 <- orig_top100tbl_1[,col_names]
+      colnames(disp_top100tbl_1) <- new_col_names
+      vec <- c(input$cluster1)
+      
+      if(input$cluster1<0) {
+        datatable(disp_top100tbl_1, rownames = FALSE, width = 100)
+      } else {
+        subtable1 <- disp_top100tbl_1[disp_top100tbl_1$cl %in% vec,]
+        datatable(subtable1, rownames = FALSE, width = 100)
+      }
+    })
+    
+    output$top100_bycluster_tbl2 <- renderDataTable({
+      
+      orig_top100tbl_2 <- read.table(paste0(proj_name,'/analysis/PCA_12/tables/dge_plots/', input$method2,'/pastor_top100_markers_integrated_snn_res.', input$res2,'_', input$method2,'.txt'), header=TRUE, sep='\t')
+      
+      orig_top100tbl_2$avg_log2FC <- signif(orig_top100tbl_2$avg_log2FC,3)
+      orig_top100tbl_2$p_val_adj <- signif(orig_top100tbl_2$p_val_adj,3)
+      disp_top100tbl_2 <- orig_top100tbl_2[,col_names]
+      colnames(disp_top100tbl_2) <- new_col_names
+      vec <- c(input$cluster2)
+      
+      if(input$cluster2<0) {
+        datatable(disp_top100tbl_2, rownames = FALSE, width = 100)
+      } else {
+        subtable2 <- disp_top100tbl_2[disp_top100tbl_2$cl %in% vec,]
+        datatable(subtable2, rownames = FALSE, width = 100)
+      }
+    })
+    
+    output$top100_bycluster_tbl3 <- renderDataTable({
+      orig_top100tbl_3 <- read.table(paste0(proj_name,'/analysis/PCA_12/tables/dge_plots/', input$method3,'/pastor_top100_markers_integrated_snn_res.', input$res3,'_', input$method3,'.txt'), header=TRUE, sep='\t')
+      
+      orig_top100tbl_3$avg_log2FC <- signif(orig_top100tbl_3$avg_log2FC,3)
+      orig_top100tbl_3$p_val_adj <- signif(orig_top100tbl_3$p_val_adj,3)
+      disp_top100tbl_3 <- orig_top100tbl_3[,col_names]
+      colnames(disp_top100tbl_3) <- new_col_names
+      vec <- c(input$cluster3)
+      
+      if(input$cluster3<0) {
+        datatable(disp_top100tbl_3, rownames = FALSE, width = 100)
+      } else {
+        subtable3 <- disp_top100tbl_3[disp_top100tbl_3$cl %in% vec,]
+        datatable(subtable3, rownames = FALSE, width = 100)
+      }
+      
+    })
+   },
+  options = list(width = "100%", height=1000)      
+ )
+```
+
+
+

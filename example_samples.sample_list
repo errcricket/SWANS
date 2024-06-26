@@ -1,0 +1,6 @@
+samples	condition	path_to_10X
+A1	control	full_path_to_A1_10X_data
+A2	control	full_path_to_A2_10X_data
+A3	control	full_path_to_A3_10X_data
+B1	Ant1_deficient	full_path_to_B1_10X_data
+B2	Ant1_deficient	full_path_to_B2_10X_data

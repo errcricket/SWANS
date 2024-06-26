@@ -1,0 +1,37 @@
+'''
+Author:	E. Reichenberger
+Date:		2.22.2021
+'''
+
+#paths
+log_directory = 'logs/intial_sigPC/'
+
+#--------------------MESSAGES-----------------------------------
+onsuccess:
+  print("The pipeline to find significant PCs completed with no errors.")
+  shell("mail -s 'The pipeline to find significant PCs completed with no errors.' "+ config['contact']+" < {log}")
+
+onerror:
+  print("The pipeline to find significant PCs did not complete without errors."),
+  shell("mail -s 'The pipeline to find significant PCs  did not complete without errors, check the logs and try again.' "+ config['contact']+" < {log}")
+
+#--------------------RULES---------------------------------------
+rule calculate_sigPCs:
+	input:
+		script = r_file,
+		merge_samples_outputs = merge_list
+	params:
+		project = PROJECT,
+		rpath = RPATH,
+		components = COMPONENTS,
+		merged_file = storage_file,
+		storage = STORAGE,
+		cell_cycle = CCREGRESSION,
+		organism = ORGANISM
+	output:
+		pcs = signicant_pcs,
+		pc = signicant_pc
+	log:
+		log_output = log_directory + PROJECT + '_initial_PCs.log'
+	shell:
+		"Rscript {input.script} {params.project} {params.rpath} {params.components} {params.merged_file} {params.storage} {params.cell_cycle} {params.organism} 2> {log.log_output}"

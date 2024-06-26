@@ -1,0 +1,55 @@
+# contact (email will be sent when jobs complete) 
+contact: user_name@x.x
+
+# R library location
+RPATH: path_to_your_r_libraries
+
+# project name (IN LOWER CASE) base_name: (name of output directory under data/endpoints/)
+PROJECT: project_name
+
+# starting files for soupX: (outs, no_clusters, h5)
+MATRIX: outs
+
+# mito regression (y/n)
+MITO_REGRESSION: n
+
+#organism (e.g., mouse, human)
+ORGANISM: mouse
+
+# mito cutoff (e.g., numeric value)
+MITO: 15
+
+# sequencing (e.g., cell, nucleus)
+SEQUENCING: nucleus
+
+# cell cycling regression (y/n)
+CCREGRESSION: n
+
+# cell regression method (standard/alternative)
+CCREGRESSION_METHOD: standard
+
+# feature thresholds 
+# e.g., S <- subset(S.merged, subset = nFeature_RNA > 200 & nFeature_RNA < 3000)
+MIN_FEATURE_THRESHOLD: 200
+MAX_FEATURE_THRESHOLD: 3000
+
+# number of components for initial exploration
+ICOMPONENTS: 50
+
+# normalization method (e.g., RPCA, SCT, Standard, ALL (runs all 3 methods))
+METHOD: Standard
+
+# storage method (e.g., h5, rds)
+STORAGE: rds
+
+#resolution value(s) examples: single value: 0.5; multiple values: 0.1, 0.3, 0.5 (if I, resolution = c(0.5, 0.8, 1.2), if blank, res = 0.8)
+RESOLUTION: I
+
+# find conserved genes across conditions (y/n)
+CONSERVED_GENES: n
+
+#cell marker gene set identity matching threshold
+MARKER_THRESHOLD: 30
+
+# full path and filename(s) to file(s) containing genes of interest
+USER_GENE_FILE: genes_of_interest.txt
